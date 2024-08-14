@@ -24,32 +24,26 @@ const categories = [
 
 export default function BrowseByRange() {
   return (
-    <div className="p-6 bg-gray-100">
+    <div className="p-6 px-16 bg-gray-100">
       <h2 className="text-center text-3xl font-bold mb-8 text-gray-800">
         Browse by Range
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {categories.map((category) => (
-          <div key={category.title} className="relative group">
+          <div 
+            key={category.title} 
+            className="relative group overflow-hidden"
+          >
             <Image
               src={category.image}
               alt={category.title}
               width={480} // Adjust the width according to your needs
               height={381} // Adjust the height according to your needs
-              className=" object-cover "
+              className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             />
-            <h3 className="text-centers text-xl font-semibold mb-2">
-            {category.title}
-          </h3>
-
-            {/* <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black bg-opacity-50  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h3 className="text-white text-xl font-semibold mb-2">
-                {category.title}
-              </h3>
-              <p className="text-white text-sm">
-                {category.description}
-              </p>
-            </div> */}
+            <h3 className="text-center text-xl font-semibold my-2 transform transition-transform duration-500 ease-in-out group-hover:translate-y-2">
+              {category.title}
+            </h3>
           </div>
         ))}
       </div>

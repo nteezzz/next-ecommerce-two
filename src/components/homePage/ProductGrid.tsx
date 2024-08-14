@@ -74,7 +74,7 @@ const products = [
 
 export const ProductGrid: React.FC = () => {
   return (
-    <div className="py-12 px-6">
+    <div className="py-12 px-16">
       <h2 className="text-center text-3xl font-bold mb-8 text-gray-800">
         Our Products
       </h2>
@@ -92,7 +92,7 @@ export const ProductGrid: React.FC = () => {
         ))}
       </div>
       <div className="text-center mt-8">
-        <Button className="bg-[#B88E2F] px-16">See More</Button>
+        <Button className="bg-[#B88E2F] px-16 hover:bg-[#a87b1b]">See More</Button>
       </div>
     </div>
   );

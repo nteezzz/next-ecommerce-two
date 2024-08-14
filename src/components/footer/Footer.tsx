@@ -10,7 +10,7 @@ export function Footer() {
         
         {/* Column 1: Brand Name & Address */}
         <div>
-          <h3 className="font-bold text-lg mb-3">NteezCart</h3>
+          <h3 className="font-bold text-lg mb-3">Funiro</h3>
           <address className="not-italic mb-3">
             123 Fashion Street,<br />
             New York, NY 10001<br />

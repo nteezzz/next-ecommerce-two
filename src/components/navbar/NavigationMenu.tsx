@@ -85,7 +85,7 @@ export function NavMenu() {
       <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className="font-bold text-2xl">
-              NteezCart
+              Funiro
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
