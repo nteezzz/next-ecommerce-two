@@ -18,28 +18,30 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ imageSrc, name, description, price, originalPrice, message }) => {
   return (
     <Card className="relative group hover:shadow-lg transition-shadow duration-300">
-      <div className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 z-10">
-        {message} OFF
-      </div>
-      <CardHeader className="relative">
-        <Image src={imageSrc} alt={name} width={285} height={301} className="z-0" />
-        <div className="absolute m-0 inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
-          <div className="flex space-x-2">
-            <Button className="p-2 bg-white hover:bg-gray-100 text-black">
-              <PiHeartLight />
-            </Button>
-            <Button className="p-2 bg-white hover:bg-gray-100 text-black">
-              <PiArrowsHorizontalLight />
-            </Button>
-            <Button className="p-2 bg-white hover:bg-gray-100 text-black">
-              <PiShareLight />
-            </Button>
-            <Button className="p-2 bg-white hover:bg-gray-100 text-black">
-              <PiShoppingCartLight />
-            </Button>
+      <div className="relative">
+        <Image src={imageSrc} alt={name} width={285} height={301} className="w-full h-auto" />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
+          <div className="flex flex-col space-y-2">
+            <div className="flex justify-center space-x-2 mb-2">
+              <Button className="p-2 bg-white hover:bg-gray-100 text-black">
+                <PiHeartLight />
+              </Button>
+              <Button className="p-2 bg-white hover:bg-gray-100 text-black">
+                <PiArrowsHorizontalLight />
+              </Button>
+              <Button className="p-2 bg-white hover:bg-gray-100 text-black">
+                <PiShareLight />
+              </Button>
+              <Button className="p-2 bg-white hover:bg-gray-100 text-black">
+                <PiShoppingCartLight />
+              </Button>
+            </div>
+            <div className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 z-10">
+              {message} OFF
+            </div>
           </div>
         </div>
-      </CardHeader>
+      </div>
       <CardContent className="bg-[#F4F5F7]">
         <CardTitle className="text-lg">{name}</CardTitle>
         <CardDescription>{description}</CardDescription>

@@ -6,12 +6,9 @@ import { Button } from "../ui/button";
 
 import { products } from "@/data/products";
 
-export const ProductGrid: React.FC = () => {
+export const ProductGridFilters: React.FC = () => {
   return (
-    <div className="py-12 px-16">
-      <h2 className="text-center text-3xl font-bold mb-8 text-gray-800">
-        Our Products
-      </h2>
+    <div className="py-12 px-16"> 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product, index) => (
           <ProductCard
