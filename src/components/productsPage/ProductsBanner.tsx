@@ -23,7 +23,7 @@ export default function ProductsBanner() {
           {currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}
         </h1>
         <p className="text-sm md:text-base">
-          <Link href="/" className="text-[#B88E2F] hover:underline">Home</Link> &gt; 
+          <Link href="/" className=" hover:underline">Home</Link> &gt; 
           {' '}
           {currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}
         </p>

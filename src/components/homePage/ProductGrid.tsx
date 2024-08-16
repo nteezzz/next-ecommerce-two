@@ -5,6 +5,7 @@ import { ProductCard } from "../productcard/ProductCard";
 import { Button } from "../ui/button";
 
 import { products } from "@/data/products";
+import Link from "next/link"
 
 export const ProductGrid: React.FC = () => {
   return (
@@ -26,7 +27,10 @@ export const ProductGrid: React.FC = () => {
         ))}
       </div>
       <div className="text-center mt-8">
+        <Link href="/shop" >
         <Button className="bg-[#B88E2F] px-16 hover:bg-[#a87b1b]">See More</Button>
+        </Link>
+        
       </div>
     </div>
   );
