@@ -36,11 +36,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ imageSrc, name, descri
                 <PiShoppingCartLight />
               </Button>
             </div>
-            <div className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 z-10">
-              {message} OFF
-            </div>
+            
           </div>
         </div>
+        <div className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 z-10">
+              {message} OFF
+            </div>
       </div>
       <CardContent className="bg-[#F4F5F7]">
         <CardTitle className="text-lg">{name}</CardTitle>

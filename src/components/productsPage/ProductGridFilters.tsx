@@ -11,6 +11,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { PiFadersHorizontalLight } from "react-icons/pi"; // Importing the Pi icon
 
 export const ProductGridFilters: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>("All");
@@ -42,7 +43,8 @@ export const ProductGridFilters: React.FC = () => {
   return (
     <>
       <div className="py-8 px-6 flex justify-between bg-[#F9F1E7] items-center">
-        <div>
+        <div className="flex items-center">
+          <PiFadersHorizontalLight size={24} className="mr-2 text-lg" />
           <label htmlFor="typeFilter" className="mr-2 text-lg">
             Filter by Type:
           </label>

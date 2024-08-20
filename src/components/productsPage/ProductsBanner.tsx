@@ -3,6 +3,13 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb'; // Adjust import path based on your setup
 
 export default function ProductsBanner() {
   const pathname = usePathname();
@@ -15,18 +22,28 @@ export default function ProductsBanner() {
       <img
         src="/assets/productsbanner.png" 
         alt="Products banner"
-        className="absolute inset-0 w-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-md text-center">
-        <h1 className="text-4xl">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+        <h1 className="text-4xl mb-4">
           {currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}
         </h1>
-        <p className="text-sm md:text-base">
-          <Link href="/" className=" hover:underline">Home</Link> &gt; 
-          {' '}
-          {currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}
-        </p>
+        <Breadcrumb className="text-sm md:text-base">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink>
+                <Link href="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator>{'>'}</BreadcrumbSeparator>
+            <BreadcrumbItem>
+              <span className="font-medium">
+                {currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}
+              </span>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
       </div>
     </div>
   );
