@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button'; 
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface VariantSelectorProps {
   variants: string[];
   onVariantChange?: (variant: string) => void;
 }
 
-export const VariantSelector: React.FC<VariantSelectorProps> = ({ variants, onVariantChange }) => {
+export const VariantSelector: React.FC<VariantSelectorProps> = ({
+  variants,
+  onVariantChange,
+}) => {
   const [selectedVariant, setSelectedVariant] = useState(variants[0]);
 
   const handleClick = (variant: string) => {
@@ -23,9 +26,13 @@ export const VariantSelector: React.FC<VariantSelectorProps> = ({ variants, onVa
         {variants.map((variant, index) => (
           <Button
             key={index}
-            variant={selectedVariant === variant ?  'default':'ghost'}
+            variant={selectedVariant === variant ? "default" : "ghost"}
             onClick={() => handleClick(variant)}
-            className={`${selectedVariant === variant ?  'bg-[#B88E2F] hover:bg-[#B88E2F]':'bg-[#F9F1E7] hover:bg-[#F9F1E7]'}`}
+            className={`${
+              selectedVariant === variant
+                ? "bg-[#B88E2F] hover:bg-[#B88E2F]"
+                : "bg-[#F9F1E7] hover:bg-[#F9F1E7]"
+            }`}
           >
             {variant}
           </Button>

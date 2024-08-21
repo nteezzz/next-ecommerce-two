@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button'; // Adjust the import path according to your project setup
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button"; 
 
 export const ActionButtons: React.FC = () => {
   const [quantity, setQuantity] = useState<number>(1);

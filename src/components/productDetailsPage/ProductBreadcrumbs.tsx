@@ -6,7 +6,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'; // Adjust the import path based on your setup
+} from '@/components/ui/breadcrumb'; 
 
 interface BreadcrumbsProps {
   productName: string;

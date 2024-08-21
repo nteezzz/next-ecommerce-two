@@ -1,8 +1,20 @@
 "use client";
 
 import React from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { PiHeartLight, PiShareLight, PiShoppingCartLight, PiArrowsHorizontalLight } from "react-icons/pi";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  PiHeartLight,
+  PiShareLight,
+  PiShoppingCartLight,
+  PiArrowsHorizontalLight,
+} from "react-icons/pi";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
@@ -15,11 +27,24 @@ interface ProductCardProps {
   message: string;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ imageSrc, name, description, price, originalPrice, message }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({
+  imageSrc,
+  name,
+  description,
+  price,
+  originalPrice,
+  message,
+}) => {
   return (
     <Card className="relative group hover:shadow-lg transition-shadow duration-300">
       <div className="relative">
-        <Image src={imageSrc} alt={name} width={285} height={301} className="w-full h-auto" />
+        <Image
+          src={imageSrc}
+          alt={name}
+          width={285}
+          height={301}
+          className="w-full h-auto"
+        />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
           <div className="flex flex-col space-y-2">
             <div className="flex justify-center space-x-2 mb-2">
@@ -36,19 +61,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({ imageSrc, name, descri
                 <PiShoppingCartLight />
               </Button>
             </div>
-            
           </div>
         </div>
         <div className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 z-10">
-              {message} OFF
-            </div>
+          {message} OFF
+        </div>
       </div>
       <CardContent className="bg-[#F4F5F7]">
         <CardTitle className="text-lg">{name}</CardTitle>
         <CardDescription>{description}</CardDescription>
         <div className="flex items-center space-x-2">
           <span className="text-lg font-semibold">{price}</span>
-          <span className="text-sm text-gray-500 line-through">{originalPrice}</span>
+          <span className="text-sm text-gray-500 line-through">
+            {originalPrice}
+          </span>
         </div>
       </CardContent>
     </Card>

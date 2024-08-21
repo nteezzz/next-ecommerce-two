@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
-export const AdditionalDetails: React.FC<{ longDescription: string; additionalInfo: string; reviews: string }> = ({
-  longDescription,
-  additionalInfo,
-  reviews,
-}) => (
+export const AdditionalDetails: React.FC<{
+  longDescription: string;
+  additionalInfo: string;
+  reviews: string;
+}> = ({ longDescription, additionalInfo, reviews }) => (
   <Tabs defaultValue="description">
     <TabsList>
       <TabsTrigger value="description">Description</TabsTrigger>

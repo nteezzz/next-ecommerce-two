@@ -11,7 +11,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { PiFadersHorizontalLight } from "react-icons/pi"; // Importing the Pi icon
+import { PiFadersHorizontalLight } from "react-icons/pi"; 
 
 export const ProductGridFilters: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>("All");

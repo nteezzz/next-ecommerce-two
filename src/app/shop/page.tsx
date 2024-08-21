@@ -9,9 +9,7 @@ export default function ProductListingPage() {
     <div>
       <ProductsBanner/>
       <ProductGridFilters />
-      {/* <PromisesBanner/> */}
       <FooterBanner/>
-
     </div>
   );
 }

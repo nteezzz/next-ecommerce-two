@@ -1,26 +1,26 @@
 "use client";
 
-import React from 'react';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import React from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'; // Adjust import path based on your setup
+} from "@/components/ui/breadcrumb";
 
 export default function ProductsBanner() {
   const pathname = usePathname();
-  const pathArray = pathname.split('/').filter(Boolean);
+  const pathArray = pathname.split("/").filter(Boolean);
 
-  const currentPage = pathArray[pathArray.length - 1] || 'Shop';
+  const currentPage = pathArray[pathArray.length - 1] || "Shop";
 
   return (
     <div className="relative w-full h-[275px]">
       <img
-        src="/assets/productsbanner.png" 
+        src="/assets/productsbanner.png"
         alt="Products banner"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -36,7 +36,7 @@ export default function ProductsBanner() {
                 <Link href="/">Home</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator>{'>'}</BreadcrumbSeparator>
+            <BreadcrumbSeparator>{">"}</BreadcrumbSeparator>
             <BreadcrumbItem>
               <span className="font-medium">
                 {currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}

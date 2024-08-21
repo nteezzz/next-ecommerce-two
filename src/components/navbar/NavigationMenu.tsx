@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { Input } from "../ui/input"
+import * as React from "react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Input } from "../ui/input";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,9 +12,15 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import { Button } from "../ui/button"
-import { PiShoppingCartLight, PiHeartLight, PiUserCircleDashedLight,PiUserCircleCheckLight, PiMagnifyingGlassLight  } from "react-icons/pi"
+} from "@/components/ui/navigation-menu";
+import { Button } from "../ui/button";
+import {
+  PiShoppingCartLight,
+  PiHeartLight,
+  PiUserCircleDashedLight,
+  PiUserCircleCheckLight,
+  PiMagnifyingGlassLight,
+} from "react-icons/pi";
 
 const categories = [
   {
@@ -32,7 +38,10 @@ const categories = [
     title: "Indian & Festive Wear",
     href: "/categories/indian-festive",
     subcategories: [
-      { title: "Kurta & Kurta Sets", href: "/categories/indian-festive/kurta-sets" },
+      {
+        title: "Kurta & Kurta Sets",
+        href: "/categories/indian-festive/kurta-sets",
+      },
       { title: "Sherwanis", href: "/categories/indian-festive/sherwanis" },
     ],
   },
@@ -51,7 +60,10 @@ const categories = [
     title: "Western Wear",
     href: "/categories/western",
     subcategories: [
-      { title: "Dresses & Jumpsuits", href: "/categories/western/dresses-jumpsuits" },
+      {
+        title: "Dresses & Jumpsuits",
+        href: "/categories/western/dresses-jumpsuits",
+      },
     ],
   },
   {
@@ -73,16 +85,19 @@ const categories = [
       { title: "Casual Shoes", href: "/categories/footwear/casual-shoes" },
       { title: "Heels", href: "/categories/footwear/heels" },
       { title: "Boots", href: "/categories/footwear/boots" },
-      { title: "Sports Shoes & Floaters", href: "/categories/footwear/sports-floaters" },
+      {
+        title: "Sports Shoes & Floaters",
+        href: "/categories/footwear/sports-floaters",
+      },
     ],
   },
-]
+];
 
 export function NavMenu() {
   return (
     <NavigationMenu className="flex items-center justify-between p-5">
       <NavigationMenuList className="flex items-center space-x-4">
-      <NavigationMenuItem>
+        <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className="font-bold text-2xl">
               Funiro
@@ -91,19 +106,14 @@ export function NavMenu() {
         </NavigationMenuItem>
       </NavigationMenuList>
       <NavigationMenuList className="flex items-center space-x-4">
-        
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className="text-md">
-              Home
-            </NavigationMenuLink>
+            <NavigationMenuLink className="text-md">Home</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/shop" legacyBehavior passHref>
-            <NavigationMenuLink className="text-md">
-              Shop
-            </NavigationMenuLink>
+            <NavigationMenuLink className="text-md">Shop</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         {/* <NavigationMenuItem>
@@ -126,23 +136,19 @@ export function NavMenu() {
         </NavigationMenuItem> */}
         <NavigationMenuItem>
           <Link href="/about" legacyBehavior passHref>
-            <NavigationMenuLink className="text-md">
-              About
-            </NavigationMenuLink>
+            <NavigationMenuLink className="text-md">About</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/contact" legacyBehavior passHref>
-            <NavigationMenuLink className="text-md">
-              Contact
-            </NavigationMenuLink>
+            <NavigationMenuLink className="text-md">Contact</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
-      
+
       <NavigationMenuList className="flex items-center space-x-4">
         <NavigationMenuItem>
-         <Link href="/profile" legacyBehavior passHref>
+          <Link href="/profile" legacyBehavior passHref>
             <NavigationMenuLink>
               <PiUserCircleDashedLight className="text-xl" />
             </NavigationMenuLink>
@@ -171,7 +177,7 @@ export function NavMenu() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }
 
 const ListItem = React.forwardRef<
@@ -196,6 +202,6 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";

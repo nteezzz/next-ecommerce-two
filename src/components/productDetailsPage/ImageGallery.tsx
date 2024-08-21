@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export const ImageGallery: React.FC<{ images: string[] }> = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState<string>(images[0]);
@@ -14,14 +14,14 @@ export const ImageGallery: React.FC<{ images: string[] }> = ({ images }) => {
             alt={`Thumbnail ${index + 1}`}
             onClick={() => setSelectedImage(image)}
             className={`w-20 h-20 object-cover cursor-pointer ${
-              selectedImage === image ? 'border-2 border-[#B88E2F]' : 'border'
+              selectedImage === image ? "border-2 border-[#B88E2F]" : "border"
             }`}
           />
         ))}
       </div>
 
       {/* Primary Image */}
-      <div className="flex-1 h-[464px] relative"> {/* Adjust height as needed */}
+      <div className="flex-1 h-[464px] relative">
         <img
           src={selectedImage}
           alt="Selected"

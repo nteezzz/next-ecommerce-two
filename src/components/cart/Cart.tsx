@@ -3,7 +3,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { products } from "@/data/products";
 
 export const Cart = () => {
@@ -30,7 +39,8 @@ export const Cart = () => {
 
   // Convert price to number and calculate subtotal
   const subtotal = cartItems.reduce(
-    (acc, item) => acc + parseFloat(item.price.replace('$', '')) * item.quantity,
+    (acc, item) =>
+      acc + parseFloat(item.price.replace("$", "")) * item.quantity,
     0
   );
   const tax = "TBD";
@@ -82,7 +92,10 @@ export const Cart = () => {
                     </div>
                   </TableCell>
                   <TableCell className="text-right">
-                    ${(parseFloat(item.price.replace('$', '')) * item.quantity).toFixed(2)}
+                    $
+                    {(
+                      parseFloat(item.price.replace("$", "")) * item.quantity
+                    ).toFixed(2)}
                   </TableCell>
                 </TableRow>
               ))}

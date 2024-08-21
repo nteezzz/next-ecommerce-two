@@ -1,23 +1,22 @@
-"use client"; // Ensure to add this at the top of your file
+"use client"; 
 
 import React from 'react';
-import Image from 'next/image'; // Assuming you are using Next.js for image optimization
+import Image from 'next/image';
 
-// Define the categories with their respective images and texts
 const categories = [
   {
     title: "Dining",
-    image: "/assets/image 106.png", // Replace with the path to your dining image
+    image: "/assets/image 106.png", 
     description: "Explore our elegant dining furniture and accessories.",
   },
   {
     title: "Living",
-    image: "/assets/image 99.png", // Replace with the path to your living image
+    image: "/assets/image 99.png", 
     description: "Discover stylish living room furniture and decor.",
   },
   {
     title: "Bedroom",
-    image: "/assets/image 80.png", // Replace with the path to your bedroom image
+    image: "/assets/image 80.png", 
     description: "Find the perfect pieces for your bedroom retreat.",
   },
 ];
@@ -37,8 +36,8 @@ export default function BrowseByRange() {
             <Image
               src={category.image}
               alt={category.title}
-              width={480} // Adjust the width according to your needs
-              height={381} // Adjust the height according to your needs
+              width={480} 
+              height={381} 
               className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             />
             <h3 className="text-center text-xl font-semibold my-2 transform transition-transform duration-500 ease-in-out group-hover:translate-y-2">
