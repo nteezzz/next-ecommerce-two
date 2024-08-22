@@ -19,11 +19,11 @@ export default function MainBanner() {
         <p className="text-[#B88E2F] text-sm md:text-base">
           Discover the latest trends and shop your favorites now.
         </p>
-
-          <Button className="mt-4 px-8 py-2 bg-[#B88E2F] text-white text-sm md:text-base hover:bg-[#a87b1b]">
+        <Link href={'/shop'}>
+        <Button className="mt-4 px-8 py-2 bg-[#B88E2F] text-white text-sm md:text-base hover:bg-[#a87b1b]">
             Shop Now
-          </Button>
-
+        </Button>
+        </Link>
       </div>
     </div>
   );

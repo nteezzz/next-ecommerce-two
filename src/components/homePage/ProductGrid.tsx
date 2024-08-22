@@ -27,13 +27,15 @@ export const ProductGrid: React.FC = () => {
         ))}
       </div>
       <div className="text-center mt-8">
-
-          <Button
+        <Link href={'/shop'}>
+        <Button
             className="px-16 text-[#B88E2F] border-[#B88E2F]"
             variant={"outline"}
           >
             Show More
-          </Button>
+        </Button>
+        </Link>
+          
 
       </div>
     </div>

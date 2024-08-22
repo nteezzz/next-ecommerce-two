@@ -1,15 +1,8 @@
 "use client";
-import React, { useState } from 'react';
-import { FC, ChangeEvent } from 'react';
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import React, { useState } from "react";
+import { FC } from "react";
+import Image from "next/image";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import {
   Select,
   SelectContent,
@@ -19,6 +12,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type Product = {
   id: number;
@@ -43,110 +38,159 @@ interface CompareTableProps {
   products: Product[];
 }
 
-export const CompareTable: FC<CompareTableProps> = ({ selectedProduct, products }) => {
-  const [selectedProduct1, setSelectedProduct1] = useState<Product | null>(null);
-  const [selectedProduct2, setSelectedProduct2] = useState<Product | null>(null);
+export const CompareTable: FC<CompareTableProps> = ({
+  selectedProduct,
+  products,
+}) => {
+  const [selectedProduct1, setSelectedProduct1] = useState<Product | null>(
+    null
+  );
+  const [selectedProduct2, setSelectedProduct2] = useState<Product | null>(
+    null
+  );
 
   const handleSelectProduct1 = (value: string) => {
     const productId = parseInt(value, 10);
-    const product = products.find(p => p.id === productId) || null;
+    const product = products.find((p) => p.id === productId) || null;
     setSelectedProduct1(product);
   };
 
   const handleSelectProduct2 = (value: string) => {
     const productId = parseInt(value, 10);
-    const product = products.find(p => p.id === productId) || null;
+    const product = products.find((p) => p.id === productId) || null;
     setSelectedProduct2(product);
   };
 
+  const handleRemoveProduct1 = () => {
+    setSelectedProduct1(null);
+  };
+
+  const handleRemoveProduct2 = () => {
+    setSelectedProduct2(null);
+  };
+
+  // Define a mapping of attribute keys to their labels
+  const attributeMapping: { key: keyof Product; label: string }[] = [
+    { key: "name", label: "Product Name" },
+    { key: "rating", label: "Rating" },
+    { key: "price", label: "Price" },
+    { key: "description", label: "Description" },
+    { key: "dimensions", label: "Dimensions" },
+    { key: "weight", label: "Weight" },
+    { key: "color", label: "Color" },
+    { key: "material", label: "Material" },
+    { key: "brand", label: "Brand" },
+  ];
+
   return (
-    <Table>
-      <TableCaption>Compare selected products.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Attribute</TableHead>
-          <TableHead>
-            {selectedProduct ? 'Current Product' : 'Current Product Not Selected'}
-          </TableHead>
-          <TableHead>
-            <Select onValueChange={handleSelectProduct1}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select Product 1" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Select Product 1</SelectLabel>
-                  {products.map(product => (
-                    <SelectItem key={product.id} value={product.id.toString()}>
-                      {product.name}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </TableHead>
-          <TableHead>
-            <Select onValueChange={handleSelectProduct2}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select Product 2" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Select Product 2</SelectLabel>
-                  {products.map(product => (
-                    <SelectItem key={product.id} value={product.id.toString()}>
-                      {product.name}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow>
-          <TableCell>Product Image</TableCell>
-          <TableCell>
-            <img src={selectedProduct.imageSrc} alt="Product Image" width={100} />
-          </TableCell>
-          <TableCell>
-            {selectedProduct1?.imageSrc ? (
-              <img src={selectedProduct1.imageSrc} alt="Product Image" width={100} />
-            ) : 'N/A'}
-          </TableCell>
-          <TableCell>
-            {selectedProduct2?.imageSrc ? (
-              <img src={selectedProduct2.imageSrc} alt="Product Image" width={100} />
-            ) : 'N/A'}
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Product Name</TableCell>
-          <TableCell>{selectedProduct.name}</TableCell>
-          <TableCell>{selectedProduct1?.name || ''}</TableCell>
-          <TableCell>{selectedProduct2?.name || ''}</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Rating</TableCell>
-          <TableCell>{selectedProduct.rating || 'N/A'}</TableCell>
-          <TableCell>{selectedProduct1?.rating || 'N/A'}</TableCell>
-          <TableCell>{selectedProduct2?.rating || 'N/A'}</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Price</TableCell>
-          <TableCell>{selectedProduct.price}</TableCell>
-          <TableCell>{selectedProduct1?.price || ''}</TableCell>
-          <TableCell>{selectedProduct2?.price || ''}</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Description</TableCell>
-          <TableCell>{selectedProduct.description}</TableCell>
-          <TableCell>{selectedProduct1?.description || ''}</TableCell>
-          <TableCell>{selectedProduct2?.description || ''}</TableCell>
-        </TableRow>
-        {/* Add more rows for other attributes as needed */}
-      </TableBody>
-    </Table>
+    <div className="px-16 text-left">
+      <Table>
+        <TableBody>
+          <TableRow>
+            {/* <TableCell>Product Image</TableCell> */}
+            <TableCell colSpan={1} className="text-3xl w-1/4 font-semibold">
+                Go to products page for more products
+              {" "}
+              <br />
+              <a href="/shop" className="text-gray-500 text-lg underline">
+                View More
+              </a>
+            </TableCell>
+            <TableCell>
+              <Image
+                src={selectedProduct.imageSrc}
+                alt="Product Image"
+                width={200}
+                height={200}
+              />
+            </TableCell>
+            <TableCell>
+              {selectedProduct1 ? (
+                <div className="relative">
+                  <Image
+                    src={selectedProduct1.imageSrc}
+                    alt="Product 1 Image"
+                    width={200}
+                    height={200}
+                  />
+                  <Button
+                    variant={"ghost"}
+                    className="absolute top-0 right-0 text-[#B88E2F]"
+                    onClick={handleRemoveProduct1}
+                  >
+                    <X size={16} />
+                  </Button>
+                </div>
+              ) : (
+                <Select onValueChange={handleSelectProduct1}>
+                  <SelectTrigger className="w-[180px] bg-[#B88E2F] text-white">
+                    <SelectValue placeholder="Choose a product" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Choose a Product</SelectLabel>
+                      {products.map((product) => (
+                        <SelectItem
+                          key={product.id}
+                          value={product.id.toString()}
+                        >
+                          {product.name}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              )}
+            </TableCell>
+            <TableCell>
+              {selectedProduct2 ? (
+                <div className="relative">
+                  <Image
+                    src={selectedProduct2.imageSrc}
+                    alt="Product 2 Image"
+                    width={200}
+                    height={200}
+                  />
+                  <Button
+                    variant={"ghost"}
+                    className="absolute top-0 right-0 text-[#B88E2F]"
+                    onClick={handleRemoveProduct2}
+                  >
+                    <X size={16} />
+                  </Button>
+                </div>
+              ) : (
+                <Select onValueChange={handleSelectProduct2}>
+                  <SelectTrigger className="w-[180px] bg-[#B88E2F] text-white">
+                    <SelectValue placeholder="Choose a product" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Choose a product</SelectLabel>
+                      {products.map((product) => (
+                        <SelectItem
+                          key={product.id}
+                          value={product.id.toString()}
+                        >
+                          {product.name}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              )}
+            </TableCell>
+          </TableRow>
+          {attributeMapping.map(({ key, label }) => (
+            <TableRow key={key}>
+              <TableCell>{label}</TableCell>
+              <TableCell>{selectedProduct[key] || "-"}</TableCell>
+              <TableCell>{selectedProduct1?.[key] || "-"}</TableCell>
+              <TableCell>{selectedProduct2?.[key] || "-"}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 };
