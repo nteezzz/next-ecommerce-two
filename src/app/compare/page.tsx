@@ -1,0 +1,158 @@
+import React from "react";
+import ProductsBanner from "@/components/productsPage/ProductsBanner";
+import FooterBanner from "@/components/footer/FooterBanner";
+import CompareSection from "@/components/compare/CompareSection";
+import { CompareTable } from "@/components/compare/CompareTable";
+
+export default function ComparePage() {
+  const products = [
+    {
+      id: 1001,
+      imageSrc: "/assets/image 1.png",
+      name: "Slytherin",
+      description: "Stylish Cafe Table",
+      price: "$40",
+      originalPrice: "$50",
+      message: "20% off",
+      type: "Table",
+      promotion: "Sale",
+      dimensions: "120x60x75 cm",
+      weight: "20kg",
+      color: "Green",
+      material: "Wood",
+      brand: "MagicFurn",
+      rating: 4.5,
+    },
+    {
+      id: 1002,
+      imageSrc: "/assets/image 2.png",
+      name: "Leviosa",
+      description: "Stylish Cafe Chair",
+      price: "$80",
+      originalPrice: "$100",
+      message: "20% off",
+      type: "Chair",
+      promotion: "Sale",
+      dimensions: "45x45x90 cm",
+      weight: "8kg",
+      color: "Blue",
+      material: "Plastic",
+      brand: "MagicFurn",
+      rating: 4.7,
+    },
+    {
+      id: 1003,
+      imageSrc: "/assets/image 3.png",
+      name: "Gryffindor",
+      description: "Elegant Dining Sofa",
+      price: "$120",
+      originalPrice: "$150",
+      message: "20% off",
+      type: "Sofa",
+      promotion: "New",
+      dimensions: "200x80x100 cm",
+      weight: "35kg",
+      color: "Red",
+      material: "Leather",
+      brand: "MagicFurn",
+      rating: 4.8,
+    },
+    {
+      id: 1004,
+      imageSrc: "/assets/image 4.png",
+      name: "Hufflepuff",
+      description: "Comfortable Lounge Sofa",
+      price: "$70",
+      originalPrice: "$90",
+      message: "22% off",
+      type: "Sofa",
+      promotion: "Popular",
+      dimensions: "150x80x90 cm",
+      weight: "30kg",
+      color: "Yellow",
+      material: "Fabric",
+      brand: "MagicFurn",
+      rating: 4.6,
+    },
+    {
+      id: 1005,
+      imageSrc: "/assets/image 5.png",
+      name: "Ravenclaw",
+      description: "Modern Lamp",
+      price: "$110",
+      originalPrice: "$140",
+      message: "21% off",
+      type: "Lamp",
+      promotion: "Best Seller",
+      dimensions: "30x30x150 cm",
+      weight: "5kg",
+      color: "White",
+      material: "Metal",
+      brand: "MagicFurn",
+      rating: 4.9,
+    },
+    {
+      id: 1006,
+      imageSrc: "/assets/image 6.png",
+      name: "Weasley",
+      description: "Vintage Sofa",
+      price: "$200",
+      originalPrice: "$250",
+      message: "20% off",
+      type: "Sofa",
+      promotion: "Sale",
+      dimensions: "220x90x110 cm",
+      weight: "40kg",
+      color: "Brown",
+      material: "Wood & Leather",
+      brand: "VintageMagic",
+      rating: 4.4,
+    },
+    {
+      id: 1007,
+      imageSrc: "/assets/image 7.png",
+      name: "Dumbledore",
+      description: "Lounge Sofa",
+      price: "$500",
+      originalPrice: "$600",
+      message: "17% off",
+      type: "Sofa",
+      promotion: "Exclusive",
+      dimensions: "250x100x120 cm",
+      weight: "50kg",
+      color: "Gray",
+      material: "Velvet",
+      brand: "LuxuryMagic",
+      rating: 4.9,
+    },
+    {
+      id: 1008,
+      imageSrc: "/assets/image 8.png",
+      name: "Potter",
+      description: "Luxury Leather Sofa",
+      price: "$150",
+      originalPrice: "$180",
+      message: "16% off",
+      type: "Sofa",
+      promotion: "Limited Stock",
+      dimensions: "210x85x105 cm",
+      weight: "38kg",
+      color: "Black",
+      material: "Leather",
+      brand: "MagicFurn",
+      rating: 4.7,
+    },
+  ];
+
+  // Example of selected product for comparison
+  const selectedProduct = products[0]; // Slytherin as an example
+
+  return (
+    <div>
+      <ProductsBanner />
+      {/* <CompareSection selectedProduct={selectedProduct} productOptions={products} /> */}
+      <CompareTable selectedProduct={selectedProduct} products={products} />
+      <FooterBanner />
+    </div>
+  );
+}

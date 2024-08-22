@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { ProductBreadcrumbs } from "@/components/productDetailsPage/ProductBreadcrumbs";
 import { ProductDetails } from "@/components/productDetailsPage/ProductDetails";
@@ -9,6 +7,7 @@ import { ActionButtons } from "@/components/productDetailsPage/ActionButtons";
 import { AdditionalDetails } from "@/components/productDetailsPage/AdditionalDetails";
 import { RelatedProducts } from "@/components/productDetailsPage/RelatedProducts";
 import { ImageGallery } from "@/components/productDetailsPage/ImageGallery";
+import StarRating from "@/components/productDetailsPage/StarRating";
 import { ProductManufacture } from "@/components/productDetailsPage/ProductManufacture";
 
 const ProductDetailsPage: React.FC = () => {
@@ -26,9 +25,48 @@ const ProductDetailsPage: React.FC = () => {
       "/assets/image 4.png",
       "/assets/image 5.png",
     ],
-    longDescription: "This chair is perfect for any modern living room...",
-    additionalInfo: "Dimensions: 40x40x90 cm...",
-    reviews: "Great chair, very comfortable!",
+    longDescription: `
+      This stylish chair is designed to offer both comfort and elegance. Made with high-quality materials, 
+      it’s perfect for any modern living room, office, or cafe. The ergonomic design provides excellent 
+      support for prolonged sitting, making it ideal for working or relaxing. The sleek, contemporary look 
+      complements any decor, while the durable construction ensures that it will last for years. Whether 
+      you're reading a book, enjoying a cup of coffee, or having a conversation with friends, this chair 
+      will provide the perfect seating experience.
+    `,
+    additionalInfo: [
+      { key: "Dimensions", value: "40x40x90 cm" },
+      { key: "Weight", value: "5 kg" },
+      { key: "Material", value: "Wood" },
+      { key: "Color", value: "Black" },
+      { key: "Assembly Required", value: "Yes" },
+      { key: "Warranty", value: "1 Year" },
+      { key: "Country of Manufacture", value: "Germany" },
+      { key: "Max Weight Capacity", value: "150 kg" },
+      { key: "Finish Type", value: "Glossy" },
+      { key: "Care Instructions", value: "Wipe clean with a dry cloth" },
+      { key: "Seating Capacity", value: "1 Person" },
+      { key: "Package Includes", value: "1 Chair, Assembly Tools, Manual" },
+    ],
+    reviews: [
+      {
+        user: "John Doe",
+        rating: 5,
+        review:
+          "Great chair, very comfortable! It’s perfect for my home office and the assembly was easy.",
+      },
+      {
+        user: "Jane Smith",
+        rating: 4,
+        review:
+          "I love the design of this chair. It fits well in my living room, and the quality is excellent.",
+      },
+      {
+        user: "Sam Wilson",
+        rating: 4,
+        review:
+          "The chair is stylish and comfortable, but it took a bit longer to assemble than expected.",
+      },
+    ],
     relatedProducts: [
       {
         id: 1001,
@@ -86,7 +124,6 @@ const ProductDetailsPage: React.FC = () => {
         <ProductBreadcrumbs productName={product.name} />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mt-4 px-16 pb-16">
-          {/*Section 1: Product details */}
           <div className="flex flex-col">
             <ImageGallery images={product.images} />
           </div>
@@ -99,9 +136,7 @@ const ProductDetailsPage: React.FC = () => {
             />
             <VariantSelector variants={product.variants} />
             <ColorSwatcher colors={product.colors} />
-
             <ActionButtons />
-
             {/* SKU, Country of Manufacture, and Dimensions Section */}
             <ProductManufacture
               sku={product.sku}
@@ -118,8 +153,9 @@ const ProductDetailsPage: React.FC = () => {
               reviews={product.reviews}
             />
           </div>
+
           {/* Section 3: Related Products */}
-          <div className="col-span-1 lg:col-span-2">
+          <div className="col-span-1 lg:col-span-2 items-center text-center">
             <RelatedProducts products={product.relatedProducts} />
           </div>
         </div>

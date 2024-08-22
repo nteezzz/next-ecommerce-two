@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Montserrat } from "next/font/google";
 import { NavMenu } from "@/components/navbar/NavigationMenu";
 import { Footer } from "@/components/footer/Footer";

@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import StarRating from "./StarRating";
 
 export const ProductDetails: React.FC<{
   name: string;
@@ -9,7 +11,7 @@ export const ProductDetails: React.FC<{
   <div>
     <h1 className="text-2xl font-bold">{name}</h1>
     <div className="text-xl text-gray-800">{price}</div>
-    <div className="text-sm text-yellow-500">Rating: {ratings} / 5</div>
+    <StarRating rating={ratings} />
     <p className="mt-4 text-gray-700">{description}</p>
   </div>
 );

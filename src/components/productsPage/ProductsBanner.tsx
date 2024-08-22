@@ -32,8 +32,7 @@ export default function ProductsBanner() {
         <Breadcrumb className="text-sm md:text-base">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink>
-                <Link href="/">Home</Link>
+              <BreadcrumbLink href={'/'}>Home
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator>{">"}</BreadcrumbSeparator>

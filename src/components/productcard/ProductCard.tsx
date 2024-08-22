@@ -17,6 +17,7 @@ import {
 } from "react-icons/pi";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 interface ProductCardProps {
   imageSrc: string;
@@ -48,9 +49,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
           <div className="flex flex-col space-y-2">
             <div className="flex justify-center space-x-2 mb-2">
+      
               <Button className="p-2 bg-white hover:bg-gray-100 text-black">
                 <PiHeartLight />
               </Button>
+
               <Button className="p-2 bg-white hover:bg-gray-100 text-black">
                 <PiArrowsHorizontalLight />
               </Button>
@@ -78,5 +81,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
       </CardContent>
     </Card>
+    
   );
 };

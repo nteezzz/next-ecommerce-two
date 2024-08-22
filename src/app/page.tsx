@@ -1,3 +1,4 @@
+"use client"
 import MainBanner from "@/components/homePage/MainBanner";
 import BrowseByRange from "@/components/homePage/BrowseByRange";
 import { ProductGrid } from "@/components/homePage/ProductGrid";

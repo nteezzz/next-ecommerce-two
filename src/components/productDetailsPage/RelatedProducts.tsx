@@ -1,5 +1,8 @@
+"use client";
 import React from "react";
 import { ProductCard } from "../productcard/ProductCard";
+import Link from "next/link";
+import { Button } from "../ui/button";
 
 export const RelatedProducts: React.FC<{ products: any[] }> = ({
   products,
@@ -10,6 +13,14 @@ export const RelatedProducts: React.FC<{ products: any[] }> = ({
       {products.map((product, index) => (
         <ProductCard key={index} {...product} />
       ))}
+      <Link href="/shop">
+          <Button
+            className="px-16 text-[#B88E2F] border-[#B88E2F]"
+            variant={"outline"}
+          >
+            Show More
+          </Button>
+        </Link>
     </div>
   </div>
 );
