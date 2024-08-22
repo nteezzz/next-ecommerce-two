@@ -53,16 +53,22 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               <Button className="p-2 bg-white hover:bg-gray-100 text-black">
                 <PiHeartLight />
               </Button>
-
+              <Link href={'/compare'}>
               <Button className="p-2 bg-white hover:bg-gray-100 text-black">
                 <PiArrowsHorizontalLight />
               </Button>
+              </Link>
+              
+
               <Button className="p-2 bg-white hover:bg-gray-100 text-black">
                 <PiShareLight />
               </Button>
+              <Link href={'/cart'}>
               <Button className="p-2 bg-white hover:bg-gray-100 text-black">
                 <PiShoppingCartLight />
               </Button>
+              </Link>
+              
             </div>
           </div>
         </div>
