@@ -37,7 +37,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   message,
 }) => {
   return (
-    <Card className="relative group hover:shadow-lg transition-shadow duration-300">
+    <Link href={'/details'}>
+      <Card className="relative group hover:shadow-lg transition-shadow duration-300">
       <div className="relative">
         <Image
           src={imageSrc}
@@ -87,6 +88,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
       </CardContent>
     </Card>
+    </Link>
+    
     
   );
 };
