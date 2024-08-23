@@ -80,8 +80,6 @@ export const CheckoutForm = ({
   const handleStateChange = (value: string) => {
     setFormData((prev) => ({ ...prev, state: value }));
   };
-
-  // List of required fields
   const requiredFields = [
     "firstName",
     "lastName",
@@ -154,7 +152,6 @@ export const CheckoutForm = ({
           </Select>
         </div>
       </div>
-
       <div>
         <Label htmlFor="streetAddress">Street Address</Label>
         <Input id="streetAddress" type="text" required onChange={handleInputChange} />
@@ -173,7 +170,6 @@ export const CheckoutForm = ({
         <Label htmlFor="landmark">Landmark (Optional)</Label>
         <Input id="landmark" type="text" onChange={handleInputChange} />
       </div>
-
       <div>
         <Label htmlFor="mobileNumber">Mobile Number</Label>
         <Input id="mobileNumber" type="tel" required onChange={handleInputChange} />
@@ -182,7 +178,6 @@ export const CheckoutForm = ({
         <Label htmlFor="email">Email Address</Label>
         <Input id="email" type="email" required onChange={handleInputChange} />
       </div>
-
       <div>
         <Label htmlFor="deliveryInstructions">Delivery Instructions (Optional)</Label>
         <Input id="deliveryInstructions" type="text" onChange={handleInputChange} />

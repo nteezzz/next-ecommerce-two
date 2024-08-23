@@ -19,14 +19,14 @@ export const ProductBreadcrumbs: React.FC<BreadcrumbsProps> = ({ productName }) 
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink>
-              <Link href="/">Home</Link>
+            <BreadcrumbLink href="/">
+             Home
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator>{'>'}</BreadcrumbSeparator>
           <BreadcrumbItem>
-            <BreadcrumbLink>
-              <Link href="/shop">Shop</Link>
+            <BreadcrumbLink href="/shop">
+              Shop
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator>{'>'} |</BreadcrumbSeparator>

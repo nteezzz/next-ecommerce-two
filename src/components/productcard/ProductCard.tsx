@@ -5,8 +5,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import {
@@ -17,7 +15,6 @@ import {
 } from "react-icons/pi";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import Link from "next/link";
 
 interface ProductCardProps {
   imageSrc: string;
@@ -36,9 +33,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   originalPrice,
   message,
 }) => {
+  const handleCardClick = () => {
+    window.location.href = "/details";
+  };
+
+  const handleCompareClick = () => {
+    window.location.href = "/compare";
+  };
+
+  const handleCartClick = () => {
+    window.location.href = "/cart";
+  };
+
   return (
-    <Link href={'/details'}>
-      <Card className="relative group hover:shadow-lg transition-shadow duration-300">
+    <Card
+      className="relative group hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+      onClick={handleCardClick}
+    >
       <div className="relative">
         <Image
           src={imageSrc}
@@ -50,26 +61,30 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
           <div className="flex flex-col space-y-2">
             <div className="flex justify-center space-x-2 mb-2">
-      
               <Button className="p-2 bg-white hover:bg-gray-100 text-black">
                 <PiHeartLight />
               </Button>
-              <Link href={'/compare'}>
-              <Button className="p-2 bg-white hover:bg-gray-100 text-black">
+              <Button
+                className="p-2 bg-white hover:bg-gray-100 text-black"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the card click
+                  handleCompareClick();
+                }}
+              >
                 <PiArrowsHorizontalLight />
               </Button>
-              </Link>
-              
-
               <Button className="p-2 bg-white hover:bg-gray-100 text-black">
                 <PiShareLight />
               </Button>
-              <Link href={'/cart'}>
-              <Button className="p-2 bg-white hover:bg-gray-100 text-black">
+              <Button
+                className="p-2 bg-white hover:bg-gray-100 text-black"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the card click
+                  handleCartClick();
+                }}
+              >
                 <PiShoppingCartLight />
               </Button>
-              </Link>
-              
             </div>
           </div>
         </div>
@@ -88,8 +103,5 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
       </CardContent>
     </Card>
-    </Link>
-    
-    
   );
 };
