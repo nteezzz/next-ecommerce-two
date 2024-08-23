@@ -1,13 +1,19 @@
 "use client";
-import React, { useState } from 'react';
+import React from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
-export const ShippingOptions = () => {
-  const [shipping, setShipping] = useState('standard');
-
+export const ShippingOptions = ({
+  setShippingMethod,
+}: {
+  setShippingMethod: (method: string) => void;
+}) => {
   return (
-    <RadioGroup value={shipping} onValueChange={setShipping} className="space-y-2">
+    <RadioGroup
+      onValueChange={setShippingMethod}
+      className="space-y-2"
+      defaultValue="standard"
+    >
       <Label className="font-bold">Shipping Options</Label>
       <div>
         <RadioGroupItem value="free" id="free" />

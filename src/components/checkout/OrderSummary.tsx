@@ -1,11 +1,10 @@
 "use client";
-import React from 'react';
+import React from "react";
 
-export const OrderSummary = () => {
+export const OrderSummary = ({ shippingCost }: { shippingCost: number }) => {
   const subtotal = 100; // Replace with dynamic data
-  const shipping = 10; // Replace with dynamic data
   const tax = 5; // Replace with dynamic data
-  const total = subtotal + shipping + tax;
+  const total = subtotal + shippingCost + tax;
 
   return (
     <div className="space-y-2">
@@ -20,7 +19,7 @@ export const OrderSummary = () => {
       </div>
       <div className="mb-4 flex justify-between">
         <span className="font-medium">Shipping:</span>{" "}
-        <span>${shipping.toFixed(2)}</span>
+        <span>${shippingCost.toFixed(2)}</span>
       </div>
       <div className="mb-6 flex justify-between">
         <span className="font-semibold text-lg">Total:</span>{" "}
