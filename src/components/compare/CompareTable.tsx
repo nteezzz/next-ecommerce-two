@@ -83,16 +83,16 @@ export const CompareTable: FC<CompareTableProps> = ({
   ];
 
   return (
-    <div className="px-16 text-left">
+    <div className="px-6 md:px-16 text-left">
       <Table>
         <TableBody>
           <TableRow>
             {/* <TableCell>Product Image</TableCell> */}
-            <TableCell colSpan={1} className="text-3xl w-1/4 font-semibold">
+            <TableCell colSpan={1} className="text-lg md:text-3xl w-1/4 font-semibold">
                 Go to products page for more products
               {" "}
               <br />
-              <a href="/shop" className="text-gray-500 text-lg underline">
+              <a href="/shop" className="text-gray-500 text-sm md:text-lg underline">
                 View More
               </a>
             </TableCell>
@@ -142,7 +142,7 @@ export const CompareTable: FC<CompareTableProps> = ({
                 </Select>
               )}
             </TableCell>
-            <TableCell>
+            <TableCell className="hidden md:table-cell">
               {selectedProduct2 ? (
                 <div className="relative">
                   <Image
@@ -186,7 +186,7 @@ export const CompareTable: FC<CompareTableProps> = ({
               <TableCell>{label}</TableCell>
               <TableCell>{selectedProduct[key] || "-"}</TableCell>
               <TableCell>{selectedProduct1?.[key] || "-"}</TableCell>
-              <TableCell>{selectedProduct2?.[key] || "-"}</TableCell>
+              <TableCell className="hidden md:table-cell">{selectedProduct2?.[key] || "-"}</TableCell>
             </TableRow>
           ))}
         </TableBody>

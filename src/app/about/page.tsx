@@ -10,7 +10,7 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <ProductsBanner />
-      <div className="container py-16 px-32">
+      <div className="container py-6 md:py-16 px-10 md:px-32">
         {/* Introduction */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">About Us</h1>

@@ -11,7 +11,16 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { PiFadersHorizontalLight } from "react-icons/pi"; 
+import { PiFadersHorizontalLight ,PiArrowsDownUpLight } from "react-icons/pi"; 
+import { Label } from "../ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const ProductGridFilters: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>("All");
@@ -43,43 +52,54 @@ export const ProductGridFilters: React.FC = () => {
   return (
     <>
       <div className="py-8 px-6 flex justify-between bg-[#F9F1E7] items-center">
-        <div className="flex items-center">
+        <div className="flex  md:items-center">
           <PiFadersHorizontalLight size={24} className="mr-2 text-lg" />
-          <label htmlFor="typeFilter" className="mr-2 text-lg">
-            Filter by Type:
-          </label>
-          <select
-            id="typeFilter"
+          <Label htmlFor="typeFilter" className="mr-2 text-lg hidden md:block">
+            Filter By:
+          </Label>
+          <Select
             value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
-            className="border border-gray-300 p-2"
+            onValueChange={(value) => setSelectedType(value)}
           >
-            <option value="All">All</option>
-            <option value="Chair">Chair</option>
-            <option value="Sofa">Sofa</option>
-            <option value="Table">Table</option>
-            <option value="Lamp">Lamp</option>
-          </select>
+            <SelectTrigger className=" w-[90px] md:w-[180px]" id="typeFilter">
+              <SelectValue placeholder="Select Type" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="All">All</SelectItem>
+                <SelectItem value="Chair">Chair</SelectItem>
+                <SelectItem value="Sofa">Sofa</SelectItem>
+                <SelectItem value="Table">Table</SelectItem>
+                <SelectItem value="Lamp">Lamp</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
-        <div>
-          <label htmlFor="sortBy" className="mr-2 text-lg">
+        <div className="flex md:items-center">
+        <PiArrowsDownUpLight size={24} className="mr-2 text-lg" />
+          <Label htmlFor="sortBy" className="mr-2 text-lg hidden md:block">
             Sort by:
-          </label>
-          <select
-            id="sortBy"
+          </Label>
+          <Select
             value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="border border-gray-300 p-2"
+            onValueChange={(value) => setSortBy(value)}
           >
-            <option value="default">Default</option>
-            <option value="priceLowToHigh">Price: Low to High</option>
-            <option value="priceHighToLow">Price: High to Low</option>
-            <option value="name">Name</option>
-          </select>
+            <SelectTrigger className="w-[90px] md:w-[180px]" id="sortBy">
+              <SelectValue placeholder="Sort by" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="default">Default</SelectItem>
+                <SelectItem value="priceLowToHigh">Price: Low to High</SelectItem>
+                <SelectItem value="priceHighToLow">Price: High to Low</SelectItem>
+                <SelectItem value="name">Name</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
       </div>
-      <div className="py-12 px-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="py-10 px-10 md:px-16 md:py-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {displayedProducts.map((product, index) => (
             <ProductCard
               key={index}

@@ -30,10 +30,10 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <ProductsBanner />
-      <div className="container py-12 px-32">
+      <div className="container py-6 md:py-12 px-10 md:px-32">
         <div className="text-center mb-12">
           <h1 className="text-2xl font-bold mb-2">Get in Touch with Us</h1>
-          <p className="text-md text-gray-700 px-16">
+          <p className="text-md text-gray-700 px-6 md:px-16">
             For More Information About Our Products & Services. Please Feel Free To Drop Us An Email. Our Staff Will Always Be There To Help You Out. Do Not Hesitate!
           </p>
         </div>

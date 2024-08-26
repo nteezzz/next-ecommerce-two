@@ -18,24 +18,23 @@ export default function ProductsBanner() {
   const currentPage = pathArray[pathArray.length - 1] || "Shop";
 
   return (
-    <div className="relative w-full h-[275px]">
+    <div className="relative w-full h-[150px] sm:h-[250px] lg:h-[300px]">
       <img
         src="/assets/productsbanner.png"
         alt="Products banner"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-        <h1 className="text-4xl mb-4">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
           {currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}
         </h1>
-        <Breadcrumb className="text-sm md:text-base">
+        <Breadcrumb className="text-xs sm:text-sm md:text-base lg:text-lg">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href={'/'}>Home
-              </BreadcrumbLink>
+              <BreadcrumbLink href={'/'}>Home</BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator>{">"}</BreadcrumbSeparator>
+            <BreadcrumbSeparator className="hidden sm:inline">{">"}</BreadcrumbSeparator>
             <BreadcrumbItem>
               <span className="font-medium">
                 {currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}
