@@ -47,13 +47,13 @@ export const Cart = () => {
   const shipping = "TBD";
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto py-8 px-3 md:px-4 align-middle">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Cart Items Section */}
         <div className="col-span-2">
           <h2 className="text-2xl font-semibold mb-4">Your Cart</h2>
           <Table>
-            <TableCaption>Your selected items.</TableCaption>
+            {/* <TableCaption>Your selected items.</TableCaption> */}
             <TableHeader>
               <TableRow>
                 <TableHead>Product</TableHead>
@@ -78,14 +78,14 @@ export const Cart = () => {
                     <div className="flex items-center">
                       <Button
                         onClick={() => handleQuantityChange(item.id, -1)}
-                        className="px-2 bg-[#F9F1E7] text-black"
+                        className="px-1 md:px-2 bg-[#F9F1E7] text-black"
                       >
                         -
                       </Button>
-                      <span className="px-4">{item.quantity}</span>
+                      <span className="px-1 md:px-4">{item.quantity}</span>
                       <Button
                         onClick={() => handleQuantityChange(item.id, 1)}
-                        className="px-2 bg-[#F9F1E7] text-black"
+                        className="px-1 md:px-2 bg-[#F9F1E7] text-black"
                       >
                         +
                       </Button>

@@ -123,7 +123,7 @@ const ProductDetailsPage: React.FC = () => {
       <div>
         <ProductBreadcrumbs productName={product.name} />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mt-4 px-16 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mt-4 px-6 md:px-16 pb-6 md:pb-16">
           <div className="flex flex-col">
             <ImageGallery images={product.images} />
           </div>
