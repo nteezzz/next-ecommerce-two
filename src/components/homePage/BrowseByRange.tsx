@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const categories = [
   {
@@ -29,7 +30,8 @@ export default function BrowseByRange() {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {categories.map((category) => (
-          <div 
+          <Link href={'/shop'}>
+           <div 
             key={category.title} 
             className="relative group overflow-hidden"
           >
@@ -44,6 +46,8 @@ export default function BrowseByRange() {
               {category.title}
             </h3>
           </div>
+          </Link>
+         
         ))}
       </div>
     </div>
