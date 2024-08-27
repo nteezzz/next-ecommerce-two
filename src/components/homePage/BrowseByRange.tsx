@@ -30,24 +30,22 @@ export default function BrowseByRange() {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {categories.map((category) => (
-          <Link href={'/shop'}>
-           <div 
-            key={category.title} 
-            className="relative group overflow-hidden"
-          >
-            <Image
-              src={category.image}
-              alt={category.title}
-              width={480} 
-              height={381} 
-              className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
-            />
-            <h3 className="text-center text-xl font-semibold my-2 transform transition-transform duration-500 ease-in-out group-hover:translate-y-2">
-              {category.title}
-            </h3>
-          </div>
+          <Link href={'/shop'} key={category.title}>
+            <div 
+              className="relative group overflow-hidden"
+            >
+              <Image
+                src={category.image}
+                alt={category.title}
+                width={480} 
+                height={381} 
+                className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+              />
+              <h3 className="text-center text-xl font-semibold my-2 transform transition-transform duration-500 ease-in-out group-hover:translate-y-2">
+                {category.title}
+              </h3>
+            </div>
           </Link>
-         
         ))}
       </div>
     </div>

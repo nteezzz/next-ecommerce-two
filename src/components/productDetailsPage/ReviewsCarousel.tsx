@@ -23,8 +23,8 @@ export const ReviewsCarousel: React.FC<{
       <CarouselContent>
         {reviews.map((review, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <div className="p-2">
-              <Card className="h-full shadow-lg text-left">
+            <div className="p-0 md:p-2">
+              <Card className="h-full  shadow-lg text-left">
                 <CardHeader>
                   <CardTitle className="text-lg">{review.user}</CardTitle>
                   <StarRating rating={review.rating} />

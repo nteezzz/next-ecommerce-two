@@ -12,7 +12,7 @@ export const ActionButtons: React.FC = () => {
           variant="outline"
           onClick={() => setQuantity(quantity - 1)}
           disabled={quantity <= 1}
-          className="px-4 py-2"
+          className="px-2 md:px-4 py-2"
         >
           -
         </Button>
@@ -25,7 +25,7 @@ export const ActionButtons: React.FC = () => {
         <Button
           variant="outline"
           onClick={() => setQuantity(quantity + 1)}
-          className="px-4 py-2"
+          className="px-2 md:px-4 py-2"
         >
           +
         </Button>
