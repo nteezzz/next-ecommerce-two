@@ -103,12 +103,13 @@ export const ProductGridFilters: React.FC = () => {
           {displayedProducts.map((product, index) => (
             <ProductCard
               key={index}
-              imageSrc={product.imageSrc}
+              id={product.id}
+              imageSrc={product.images[0]}
               name={product.name}
-              description={product.description}
+              description={product.shortDescription}
               price={product.price}
               originalPrice={product.originalPrice}
-              message={product.message}
+              message={product.promotion}
             />
           ))}
         </div>

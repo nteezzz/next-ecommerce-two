@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { FC } from "react";
 import Image from "next/image";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import {
@@ -14,31 +13,14 @@ import {
 } from "@/components/ui/select";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-type Product = {
-  id: number;
-  imageSrc: string;
-  name: string;
-  description: string;
-  price: string;
-  originalPrice: string;
-  message: string;
-  type: string;
-  promotion: string;
-  rating?: number;
-  dimensions?: string;
-  weight?: string;
-  color?: string;
-  material?: string;
-  brand?: string;
-};
+import { Product } from "@/types/product";
 
 interface CompareTableProps {
   selectedProduct: Product;
   products: Product[];
 }
 
-export const CompareTable: FC<CompareTableProps> = ({
+export const CompareTable: React.FC<CompareTableProps> = ({
   selectedProduct,
   products,
 }) => {
@@ -69,36 +51,45 @@ export const CompareTable: FC<CompareTableProps> = ({
     setSelectedProduct2(null);
   };
 
-  // Define a mapping of attribute keys to their labels
-  const attributeMapping: { key: keyof Product; label: string }[] = [
-    { key: "name", label: "Product Name" },
-    { key: "rating", label: "Rating" },
-    { key: "price", label: "Price" },
-    { key: "description", label: "Description" },
-    { key: "dimensions", label: "Dimensions" },
-    { key: "weight", label: "Weight" },
-    { key: "color", label: "Color" },
-    { key: "material", label: "Material" },
-    { key: "brand", label: "Brand" },
-  ];
-
+  const renderProductAttribute = (
+    attribute: keyof Product,
+    product: Product | null
+  ) => {
+    if (!product) return "-";
+  
+    const value = product[attribute];
+  
+    if (Array.isArray(value)) {
+      if (typeof value[0] === "string") {
+        return value.join(", ");
+      }
+    } else if (typeof value === "string" || typeof value === "number") {
+      return value;
+    } 
+  
+    return "-";
+  };
   return (
     <div className="px-6 md:px-16 text-left">
       <Table>
         <TableBody>
           <TableRow>
-            {/* <TableCell>Product Image</TableCell> */}
-            <TableCell colSpan={1} className="text-lg md:text-3xl w-1/4 font-semibold">
-                Go to products page for more products
-              {" "}
+            <TableCell
+              colSpan={1}
+              className="text-lg md:text-3xl w-1/4 font-semibold"
+            >
+              Go to products page for more products
               <br />
-              <a href="/shop" className="text-gray-500 text-sm md:text-lg underline">
+              <a
+                href="/shop"
+                className="text-gray-500 text-sm md:text-lg underline"
+              >
                 View More
               </a>
             </TableCell>
             <TableCell>
               <Image
-                src={selectedProduct.imageSrc}
+                src={selectedProduct.images[0]}
                 alt="Product Image"
                 width={200}
                 height={200}
@@ -108,7 +99,7 @@ export const CompareTable: FC<CompareTableProps> = ({
               {selectedProduct1 ? (
                 <div className="relative">
                   <Image
-                    src={selectedProduct1.imageSrc}
+                    src={selectedProduct1.images[0]}
                     alt="Product 1 Image"
                     width={200}
                     height={200}
@@ -117,6 +108,7 @@ export const CompareTable: FC<CompareTableProps> = ({
                     variant={"ghost"}
                     className="absolute top-0 right-0 text-[#B88E2F]"
                     onClick={handleRemoveProduct1}
+                    aria-label="Remove selected product 1"
                   >
                     <X size={16} />
                   </Button>
@@ -146,7 +138,7 @@ export const CompareTable: FC<CompareTableProps> = ({
               {selectedProduct2 ? (
                 <div className="relative">
                   <Image
-                    src={selectedProduct2.imageSrc}
+                    src={selectedProduct2.images[0]}
                     alt="Product 2 Image"
                     width={200}
                     height={200}
@@ -155,6 +147,7 @@ export const CompareTable: FC<CompareTableProps> = ({
                     variant={"ghost"}
                     className="absolute top-0 right-0 text-[#B88E2F]"
                     onClick={handleRemoveProduct2}
+                    aria-label="Remove selected product 2"
                   >
                     <X size={16} />
                   </Button>
@@ -181,12 +174,42 @@ export const CompareTable: FC<CompareTableProps> = ({
               )}
             </TableCell>
           </TableRow>
-          {attributeMapping.map(({ key, label }) => (
+
+          {/* Map basic product attributes */}
+          {["name", "price", "variants", "colors", "countryOfManufacture"].map(
+            (attribute) => (
+              <TableRow key={attribute}>
+                <TableCell className=" capitalize">
+                  {attribute.replace(/([A-Z])/g, " $1")}
+                </TableCell>
+                <TableCell>
+                  {renderProductAttribute(attribute as keyof Product, selectedProduct)}
+                </TableCell>
+                <TableCell>
+                  {renderProductAttribute(attribute as keyof Product, selectedProduct1)}
+                </TableCell>
+                <TableCell className="hidden md:table-cell">
+                  {renderProductAttribute(attribute as keyof Product, selectedProduct2)}
+                </TableCell>
+              </TableRow>
+            )
+          )}
+
+          {/* Map additional info */}
+          {selectedProduct.additionalInfo.map(({ key, value }) => (
             <TableRow key={key}>
-              <TableCell>{label}</TableCell>
-              <TableCell>{selectedProduct[key] || "-"}</TableCell>
-              <TableCell>{selectedProduct1?.[key] || "-"}</TableCell>
-              <TableCell className="hidden md:table-cell">{selectedProduct2?.[key] || "-"}</TableCell>
+              <TableCell>{key}</TableCell>
+              <TableCell>{value}</TableCell>
+              <TableCell>
+                {selectedProduct1?.additionalInfo.find(
+                  (info) => info.key === key
+                )?.value || "-"}
+              </TableCell>
+              <TableCell className="hidden md:table-cell">
+                {selectedProduct2?.additionalInfo.find(
+                  (info) => info.key === key
+                )?.value || "-"}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

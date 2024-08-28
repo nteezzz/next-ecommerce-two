@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface ColorSwatcherProps {
   colors: string[];
@@ -11,6 +11,16 @@ export const ColorSwatcher: React.FC<ColorSwatcherProps> = ({
   onChange,
 }) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Set the default selected color to the first color in the array
+    if (colors.length > 0) {
+      setSelectedColor(colors[0]);
+      if (onChange) {
+        onChange(colors[0]);
+      }
+    }
+  }, [colors, onChange]);
 
   const handleClick = (color: string) => {
     setSelectedColor(color);

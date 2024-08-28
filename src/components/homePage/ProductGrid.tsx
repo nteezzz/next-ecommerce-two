@@ -3,7 +3,6 @@
 import React from "react";
 import { ProductCard } from "../productcard/ProductCard";
 import { Button } from "../ui/button";
-
 import { products } from "@/data/products";
 import Link from "next/link";
 
@@ -17,12 +16,13 @@ export const ProductGrid: React.FC = () => {
         {products.map((product, index) => (
           <ProductCard
             key={index}
-            imageSrc={product.imageSrc}
+            id={product.id}
+            imageSrc={product.images[0]}
             name={product.name}
-            description={product.description}
+            description={product.shortDescription}
             price={product.price}
             originalPrice={product.originalPrice}
-            message={product.message}
+            message={product.promotion}
           />
         ))}
       </div>

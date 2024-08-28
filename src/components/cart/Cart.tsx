@@ -16,7 +16,6 @@ import {
 import { products } from "@/data/products";
 
 export const Cart = () => {
-  // Dummy cart items with initial quantities
   const [cartItems, setCartItems] = useState(
     products.map((product) => ({
       ...product,
@@ -67,7 +66,7 @@ export const Cart = () => {
                 <TableRow key={item.id}>
                   <TableCell>
                     <Image
-                      src={item.imageSrc}
+                      src={item.images[0]}
                       alt={item.name}
                       width={50}
                       height={50}
